@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Tense Reflection</title>
+  <meta name="description" content="Official website of Tense Reflection">
+  <meta name="author" content="Kommie">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Ressources/icon.ico" />
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	
+</head>
+
+<body>
+ 
+	<div id="white_bar"> &nbsp; </div>
+	<div id="presskit"> <a href="presskit.html"> PRESS KIT </a> </div>
+	<img src="logo.png" id="logo"/>
+	
+	<div id="info">
+	
+				<iframe id="mobileVideo" width="560" height="315" src="https://www.youtube.com/embed/gn8oBM-ktp0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+			<div>
+			
+				Tense Reflection is an innovative puzzle / shooter where you need to solve puzzles <br>in order to reload your ammo / change the color of your shots.<br><br>
+		
+				In order to win, you must quickly switch between 3 panels :<br><br>
+				
+					<img src="Ressources/ColorPanel.png"/>
+					<img src="Ressources/PuzzlePanel.png"/>
+					<img src="Ressources/ShootingPanel.png"/><br>
+					
+				<img style="width:30%;" src="Ressources/3.png"/><br><br>
+				
+					<img src="Ressources/editor.png"/><br><br>
+				
+				<img style="width:30%;" src="Ressources/2.png"/><br><br>
+				
+				Tense Reflection features musics from the 6 following artists :<br><br>
+				
+					<img src="Ressources/artists.png"/><br><br>
+				
+				<img style="width:25%;" src="Ressources/crack.png"/><br><br>
+			
+			</div>
+		
+	</div>	<div id="shadow"> &nbsp; </div>
+	
+	
+	<div id="content">
+		
+		<div id="grid">
+		
+			<div class="cell" id="3" style='background-image:url("Mini_Screenshots/mini.jpg"); background-size:100%;'>&nbsp;</div>
+				
+			<div class="cell" id="1" style='background-image:url("Mini_Screenshots/2.jpg"); background-size:100%;'>&nbsp; </div>
+				 
+			<div class="cell" id="2" style='background-image:url("Mini_Screenshots/9.jpg"); background-size:100%;'> &nbsp;</div>
+			
+			<div class="cell" id="4" style='background-image:url("Mini_Screenshots/15.jpg"); background-size:100%;'> &nbsp;</div>
+			
+			<div class="cell" id="5" style='background-image:url("Mini_Screenshots/1.jpg"); background-size:100%;'> &nbsp;</div>
+			
+			<div class="cell" id="6" style='background-image:url("Mini_Screenshots/4.jpg"); background-size:100%;'> &nbsp;</div>
+			
+			<div class="cell" id="7" style='background-image:url("Mini_Screenshots/13.jpg"); background-size:100%;'> &nbsp;</div>
+			
+			<div class="cell" id="8" style='background-image:url("Mini_Screenshots/8.jpg"); background-size:100%;'> &nbsp;</div>
+		
+		</div>
+		
+	</div>
+	
+	 <div id="screen1" class="off" >  <img src='Screenshots/2.png'/> </div> 
+	 <div id="screen2" class="off" >  <img src='Screenshots/9.png'/> </div> 
+	 
+	 <div id="screen3" class="off" > 
+	 
+			<iframe id="myVideo" class="popup-youtube-player" src="https://www.youtube.com/embed/gn8oBM-ktp0?enablejsapi=1&version=3&playerapiid=ytplayer" width="640" height="360" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+			
+	</div>
+	
+	 <div id="screen4" class="off" >  <img src='Screenshots/15.png'/> </div> 
+	 <div id="screen5" class="off" >  <img src='Screenshots/1.png'/> </div> 
+	 <div id="screen6" class="off" >  <img src='Screenshots/4.png'/> </div> 
+	 <div id="screen7" class="off" >  <img src='Screenshots/13.png'/> </div> 
+	 <div id="screen8" class="off" >  <img src='Screenshots/8.png'/> </div> 
+	
+	
+	<script type="text/javascript">
+	
+		var showed = false;
+		
+		var vid = document.getElementById("myVideo");
+					
+				
+		$(document).ready(function(){
+			
+			
+				$('video').click(function(e){  e.stopPropagation(); });
+				
+				$("*").click(function(e){
+
+					if( $(this).attr("class") == "cell") {
+						
+								if(showed == false){
+									shown = $("#screen"+$(this).attr('id'));
+									shown.removeClass("off");
+									shown.addClass("on");
+							
+									showed = true; 
+							
+								}
+								
+					}
+					else if( $(this).attr('id') != "myVideo" && $(this).attr("class") == "on" && showed == true){
+						
+							shown.removeClass("on");
+							shown.addClass("off");
+							showed = false;
+							
+							$('.popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');     
+						
+					}
+				
+				 });
+			
+		});
+
+	</script>
+
+ 
+</body>
+</html>
